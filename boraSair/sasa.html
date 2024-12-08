@@ -37,7 +37,10 @@
 
     <script defer>
 
-
+        function isMobile() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            return /android|iphone|ipod|ipad|blackberry|windows phone/.test(userAgent);
+        }
 
 
         let x = 1;
@@ -49,18 +52,29 @@
 
         function confetinhos() {
 
-            jsConfetti.addConfetti({
-                confettiColors: ['#87CEEB', '#FFB6C1', '#D8BFD8', "#ffffff"], // Amarelo, Azul Claro, Rosa Claro, Roxo Pastel
+            if (isMobile()) {
+                jsConfetti.addConfetti({
+                    confettiColors: ['#87CEEB', '#FFB6C1', '#D8BFD8', "#ffffff"], // Amarelo, Azul Claro, Rosa Claro, Roxo Pastel
 
-                confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
-            });
+                    confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
+                });
 
-            jsConfetti.addConfetti({
-                emojis: ['🦄'],
-                emojiSize: 100,
-                confettiNumber: 30,
-                confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
-            })
+            } else {
+                jsConfetti.addConfetti({
+                    confettiColors: ['#87CEEB', '#FFB6C1', '#D8BFD8', "#ffffff"], // Amarelo, Azul Claro, Rosa Claro, Roxo Pastel
+
+                    confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
+                });
+
+                jsConfetti.addConfetti({
+                    emojis: ['🦄'],
+                    emojiSize: 100,
+                    confettiNumber: 30,
+                    confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
+                })
+            }
+
+
 
         }
 
@@ -117,7 +131,7 @@
     body {
         background-color: #ffa3d1;
         user-select: none;
-        padding: 7px;
+        padding: 9px;
     }
 
     * {
