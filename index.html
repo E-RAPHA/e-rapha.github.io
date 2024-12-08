@@ -3,75 +3,179 @@
 
 <head>
 
-    <style>
-        body {
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background-color: black;
-        }
 
-        body::before {
-            position: absolute;
-
-            z-index: -1;
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./glich.gif');
-            background-repeat: repeat;
-            background-size: cover;
-            background-color: black;
-            animation: backgroundAnimation 4s forwards;
-        }
-    </style>
-    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
-    <title>burad</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
+    <title>...</title>
 
-    </style>
+
 </head>
 
-<body>
-    <div class="container">
-        <img src="./rap.gif" alt="" srcset="" onclick='window.location.href="/"' loading="lazy">
-        <button id="links" class="bts">LINKS</button>
+<body id="canvas">
+    <h1 id="sasa">sasapegadinhas</h1>
+    <h1 class="bSair">bora sair?</h1>
+    <h2 id="contador"></h2>
 
-        <button id="ig" class="bts">INSTAGRAM</button>
-        <button id="burad" class="bts" style="display: none;">BURAD</button>
-        <br>
-        <p>© 2024 Raphael Burad</p>
-    </div>
+    <button onclick="respostaSim()" id="sim">Sim</button>
+    <button onclick="respostaNao()" id="nao">Não</button>
+    <img src="./helloKitty.gif" class="helloKitty">
 
-    <script>
-        document.querySelector("#links").addEventListener("click", () => {
-            if (document.querySelector("#links").innerHTML === "LINKS") {
-                document.querySelector("#links").style.display = "none";
-                document.querySelector("#ig").style.display = "block";
-                document.querySelector("#burad").style.display = "block";
+
+
+
+    <!--  -->
+    <audio id="audioPlayer" style="display: none;">
+        <source src="hojeTemfestinha.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.12.0/dist/js-confetti.browser.min.js"></script>
+
+
+
+    <script defer>
+  
+
+
+
+        let x = 1;
+
+
+        const jsConfetti = new JSConfetti({ target: canvas });
+
+
+
+        function confetinhos() {
+
+            jsConfetti.addConfetti({
+                confettiColors: ['#87CEEB', '#FFB6C1', '#D8BFD8', "#ffffff"], // Amarelo, Azul Claro, Rosa Claro, Roxo Pastel
+
+                confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
+            });
+
+            jsConfetti.addConfetti({
+                emojis: ['🦄'],
+                emojiSize: 100,
+                confettiNumber: 30,
+                confettiSource: { x: window.innerWidth / 2, y: -50, w: 10, h: 0 },
+            })
+
+        }
+
+        let simFlag = 0;
+        function respostaSim() {
+
+
+            simFlag++
+            if (simFlag <= 1) {
+                confetinhos()
+                setInterval(() => { confetinhos() }, 2600);
             }
-        });
 
-        document.querySelector("#ig").addEventListener("click", () => {
-            window.location.href = "https://www.instagram.com/rapburad/?theme=dark";
-        });
 
-        document.querySelector("#burad").addEventListener("click", () => {
-            window.location.href = "https://burad.com.br";
-        });
+            var audio = document.getElementById('audioPlayer');
+            audio.play();
+
+
+            document.querySelector("#nao").style.display = "none"
+            document.querySelector("#sim").style.display = "none"
+            document.querySelector(".helloKitty").style.display = "inline-block"
+
+            document.querySelector("#sasa").innerHTML = 'ebaaa!!'
+            document.querySelector(".bSair").innerHTML = 'bora combinar no zap'
+
+        }
+
+        function respostaNao() {
+            moverBotaoAleatoriamente('nao');
+            document.querySelector("#contador").innerHTML = `tentativas:${x++}`
+        }
+
+        function moverBotaoAleatoriamente(botaoId) {
+            var botao = document.getElementById(botaoId);
+
+
+            //    Math.floor(Math.random() * (max - min)) + min;
+
+            var novoMarginLeft = Math.floor(Math.random() * ((2 * (window.innerWidth / 2.2)) + 1)) - (window.innerWidth / 2.2);
+            var novoMarginTop = Math.floor(Math.random() * ((window.innerHeight / 3)) - ((window.innerHeight / 3) * -1)) + ((window.innerHeight / 3) * -1);
+
+            botao.style.marginLeft = novoMarginLeft + 'px';
+            botao.style.marginTop = novoMarginTop + 'px';
+
+            console.log(novoMarginLeft, novoMarginTop)
+        }
     </script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
+    <!-- #ff77bc; -->
 </body>
+
+
+<style>
+    body {
+        background-color: #ffa3d1;
+        user-select: none;
+    }
+
+    * {
+        margin: 0;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 10%;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 50px;
+    }
+
+    .bSair {
+        margin: 0;
+    }
+
+    h2 {
+
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 20px;
+    }
+
+
+    button {
+        width: 100px;
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border: none;
+        height: 30px;
+        border-radius: 20px;
+        transition: 0.5s ease-in-out;
+    }
+
+
+    button:hover {
+        background-color: rgb(220, 215, 215);
+        cursor: pointer;
+
+    }
+
+    #sim {
+        margin-top: 25px;
+        margin-left: -105px;
+    }
+
+    #nao {
+        margin-top: 25px;
+        margin-left: 5px;
+    }
+
+    .helloKitty {
+        display: none;
+        max-width: 280px;
+        min-width: 190px;
+    }
+</style>
 
 </html>
