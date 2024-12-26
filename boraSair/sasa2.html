@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vale Encontro - Sasa Pegadinhas</title>
+    <link rel="icon" href="./icone.jpg" type="image/jpeg">
+    <meta property="og:image" content="./icone.jpg">
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FF99CC;
+            font-family: Arial, Helvetica, sans-serif;
+            user-select: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #ffd8eb;
+        }
+
+        h4 {
+            color: red;
+            text-align: center;
+            background-color: #ffffff8f;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 20px 0;
+            color: #ffffff;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+
+            line-height: 1.6;
+
+        }
+
+        .vale-encontro {
+            background-color: #FF77BC;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            width: 90%;
+            max-width: 300px;
+            font-size: 18px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            width: 120px;
+            height: 50px;
+            margin: 10px;
+
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #FF77BC;
+            border: 2px solid #FF77BC;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FF77BC;
+            color: white;
+        }
+
+        .temporizador {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 0px;
+            color: #ffffff;
+        }
+
+        .condicoes {
+            font-size: 18px;
+            color: white;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: none;
+            width: 80%;
+            max-width: 350px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .condicoes ul {
+            list-style-type: none;
+            padding-left: 0;
+
+        }
+
+
+        @media (max-width: 450px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            button {
+                width: 100px;
+                height: 45px;
+            }
+
+            .vale-encontro {
+                font-size: 16px;
+            }
+
+            .condicoes {
+                font-size: 16px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Vale Encontro - Sasa Pegadinhas</h1>
+    <h2>BURAD preparou um encontro para você, Sasa!</h2>
+
+    <div class="vale-encontro">
+        <p>Você tem um vale encontro com o BURAD! Mas as condições estão rolando...
+
+            <br>
+            Clique abaixo para ver!
+        </p>
+    </div>
+
+    <h3 style="margin: 0;">tempo restante:</h3>
+    <div class="temporizador" id="countdown">00:00:00</div>
+
+
+    <button onclick="mostrarCondicoes()" id="botaoInteragir">Ver Condições</button>
+
+    <div class="condicoes" id="condicoes">
+        <h3>Condições do Encontro:</h3>
+        <br>
+        <ul>
+            <li>1. O Burad deve estar solteiro </li>
+            <li>2. Combinar pelo menos algumas horas antes</li>
+            <li>3. Não pode ser tarde (restaurantes fecham cedo)</li>
+            <li>4. Combinar via WhatsApp</li>
+        </ul>
+        <h4>Caso alguma condição não seja válida, o encontro será anulado.</h4>
+    </div>
+
+    <script>
+
+        function mostrarCondicoes() {
+            const condicoesDiv = document.getElementById("condicoes");
+            const botao = document.getElementById("botaoInteragir");
+
+            if (condicoesDiv.style.display === "none" || condicoesDiv.style.display === "") {
+                condicoesDiv.style.display = "block";
+                botao.innerHTML = "Esconder Condições";
+            } else {
+                condicoesDiv.style.display = "none";
+                botao.innerHTML = "Ver Condições";
+            }
+        }
+
+
+
+
+        const timestampEncontro = 1736564400 * 1000;
+
+        let countdownFunction = setInterval(function () {
+            let now = Date.now();
+            let timeRemaining = timestampEncontro - now;
+
+
+            //conversao otaria do caramba
+            let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+
+            // zeros a esquerda KKKKKKKKKKKKK
+            days = (days < 10) ? "0" + days : days;
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            document.getElementById("countdown").innerHTML =
+                `${days}:${hours}:${minutes}:${seconds}`;
+
+            if (timeRemaining <= 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "00:00:00:00";
+                alert("acabou o tempo :(");
+                document.getElementById("botaoInteragir").style.display = "none";
+            }
+        }, 1000);
+
+    </script>
+
+
+
+</body>
+
+</html>
