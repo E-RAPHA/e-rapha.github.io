@@ -232,7 +232,7 @@ function initStartMenu() {
             { text: "🎵 My Music", action: () => window.location.href = "https://open.spotify.com/user/vwmi5n4th8rh3nin3cspw95u1" },
             { text: "❓ Help", action: () => helpPopup() },
             { text: "🔄 Restart", action: () => location.reload() },
-            { text: "⏻ Shut Down", action: () => document.body.innerHTML = "<div style='height:100vh;display:flex;justify-content:center;align-items:center;background-color:black;color:white;font-family:monospace;'>It is now safe to turn off your computer.</div>" }
+            { text: "⏻ Shut Down", action: () => document.body.innerHTML = "<div style='height:100vh;width:100%;display:flex;justify-content:center;align-items:center;background-color:black;color:white;font-family:monospace;'>It is now safe to turn off your computer.</div>" }
         ];
 
         menuItems.forEach(item => {
