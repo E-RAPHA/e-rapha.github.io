@@ -3,6 +3,11 @@ function isTouchScreen() {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 }
 
+if ( isTouchScreen() && window.innerWidth <= 800) {
+    alert("Versão mobile está incompleta");
+}
+
+
 function createStars() {
     const starsContainer = document.getElementById('stars-container');
     const starCount = 100;
