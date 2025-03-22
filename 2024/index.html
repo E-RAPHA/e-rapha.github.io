@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: black;
+        }
+
+        body::before {
+            position: absolute;
+
+            z-index: -1;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./glich.gif');
+            background-repeat: repeat;
+            background-size: cover;
+            background-color: black;
+            animation: backgroundAnimation 4s forwards;
+        }
+    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
+    <title>burad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./rap.gif" alt="" srcset="" onclick='window.location.href="/"' loading="lazy">
+        <button id="links" class="bts">LINKS</button>
+
+        <button id="ig" class="bts">INSTAGRAM</button>
+        <button id="burad" class="bts" style="display: none;">BURAD</button>
+        <br>
+        <p>© 2025 Raphael Burad</p>
+    </div>
+
+    <script>
+        document.querySelector("#links").addEventListener("click", () => {
+            if (document.querySelector("#links").innerHTML === "LINKS") {
+                document.querySelector("#links").style.display = "none";
+                document.querySelector("#ig").style.display = "block";
+                document.querySelector("#burad").style.display = "block";
+            }
+        });
+
+        document.querySelector("#ig").addEventListener("click", () => {
+            window.location.href = "https://www.instagram.com/rapburad/?theme=dark";
+        });
+
+        document.querySelector("#burad").addEventListener("click", () => {
+            window.location.href = "https://burad.com.br";
+        });
+    </script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
+</body>
+
+</html>

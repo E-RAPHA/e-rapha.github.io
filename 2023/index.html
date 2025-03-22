@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>    
+    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eita</title>
+</head>
+
+<body>
+    <br><br><br>
+    <img src="./rap-kek.png" alt="" onclick="window.location.reload();">
+    <button onclick="social()" id='social'>social</button>
+    <br>
+    <button id="stuff" onclick="stuff()">stuff</button>
+    <br>
+    <button id="sobre">sobre</button>
+    <p>© 2023 Raphael Burad</p>
+</body>
+<style>
+    img {
+        display: block;
+        margin: 0 auto;
+
+        width: 400px;
+    }
+
+    button {
+        height: 70px;
+        width: 360px;
+
+
+        display: block;
+        margin: auto;
+
+        background-color: white;
+
+    }
+
+    p {
+        text-align: center;
+    }
+
+    button:hover {
+        background-color: rgba(0, 255, 255, 0.337);
+    }
+
+    body {
+        background-color: rgb(230, 228, 228);
+    }
+</style>
+<script>
+
+
+    let social = () => {
+
+
+        if (document.getElementById('social').innerText == 'instagram') {
+            window.location.href = 'https://www.instagram.com/rapburad/?theme=dark'
+        } else {
+            const element = document.getElementById("sobre");
+            element.remove();
+            document.getElementById('social').innerHTML = 'instagram'
+            document.getElementById('stuff').innerHTML = 'tiktok'
+
+        }
+
+
+    }
+    let stuff = ()=>{
+if(document.getElementById('stuff').innerText=='tiktok'){
+
+    window.alert('nao tem tiktok. >:)')
+    
+} else {
+    window.location.href="stuff"
+
+        }
+
+
+
+    }
+
+
+</script>
+
+</html> 
