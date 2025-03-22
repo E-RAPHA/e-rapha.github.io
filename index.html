@@ -1,77 +1,153 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-
-    <style>
-        body {
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background-color: black;
-        }
-
-        body::before {
-            position: absolute;
-
-            z-index: -1;
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./glich.gif');
-            background-repeat: repeat;
-            background-size: cover;
-            background-color: black;
-            animation: backgroundAnimation 4s forwards;
-        }
-    </style>
-    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
-    <title>burad</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Raphael Burad | Y2K Collage</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <div class="container">
-        <img src="./rap.gif" alt="" srcset="" onclick='window.location.href="/"' loading="lazy">
-        <button id="links" class="bts">LINKS</button>
+       
+        <div class="stars" id="stars-container"></div>
 
-        <button id="ig" class="bts">INSTAGRAM</button>
-        <button id="burad" class="bts" style="display: none;">BURAD</button>
-        <br>
-        <p>© 2025 Raphael Burad</p>
+        <div class="y2k-badge" style="top: 20px; left: 20px;">Burad<br>WEB</div>
+        <div class="y2k-badge" style="bottom: 100px; right: 20px;">WEB<br>1.0</div>
+
+     
+        <div class="decorative-img"
+            style="top: 10%; left: 10%; transform: rotate(15deg); z-index: 1; animation-delay: 0.5s;">
+            <img src="https://i.gifer.com/origin/c6/c6afab251a20e6d0eb80b983450bc66e_w200.gif" alt="Decorative"
+                style="height: 70px;">
+        </div>
+        <div class="decorative-img"
+            style="top: 30%; right: 10%; transform: rotate(-10deg); z-index: 1; animation-delay: 1s;">
+            <img src="https://static.wikia.nocookie.net/villains/images/e/ef/BONZI_BOI.gif" alt="Decorative"
+                style=" height: 140px; ">
+        </div>
+        <div class="decorative-img"
+            style="bottom: 20%; left: 15%; transform: rotate(5deg); z-index: 1; animation-delay: 1.5s;">
+            <img src="https://media.tenor.com/S61VCO73mOAAAAAj/linux-tux.gif" alt="Decorative"
+                style="filter: hue-rotate(270deg); height: 90px;">
+        </div>
+
+      
+        <div class="decorative-img mobile-hide"
+            style="top: 15%; right: 25%; transform: rotate(-5deg); z-index: 1; animation-delay: 2s;">
+            <img src="https://media.tenor.com/_AEEOfo3ibQAAAAj/mew-mewspin.gif" alt="Decorative" height="100px">
+        </div>
+        <div class="decorative-img mobile-hide"
+            style="bottom: 30%; right: 35%; transform: rotate(8deg); z-index: 1; animation-delay: 2.5s;">
+            <img src="https://i.pinimg.com/originals/14/c0/1d/14c01d070ef4669ac8d9aca1f4aa9de1.gif" alt="Decorative"
+                style="height: 70px;">
+        </div>
+
+     
+        <div class="error-window" style="top: 80px; right: 70px;" id="error-window">
+            <div class="error-header">Bug found</div>
+            <div class="error-body">
+                <div class="error-icon">❌</div>
+                <div>Welcome to Raphael's website! Click OK to continue.</div>
+            </div>
+            <div class="error-buttons">
+                <button class="error-button" id="ok-button">OK</button>
+                <button class="error-button" id="cancel-button">Cancel</button>
+            </div>
+        </div>
+
+    
+        <div class="window" style="top: 150px; left: 60px; width: 320px;" id="main-window">
+            <div class="window-header">
+                <div>raphael.exe</div>
+                <div class="window-buttons">
+                    <div class="window-button">_</div>
+                    <div class="window-button">□</div>
+                    <div class="window-button" data-window="main-window">✕</div>
+                </div>
+            </div>
+            <div class="window-body">
+                <p style="text-align: center; margin: 10px 0; font-weight: bold; animation: rainbow 5s infinite;">
+                    Raphael Burad</p>
+                <div style="text-align: center; font-size: 12px; margin-top: 5px; color: #000080;">
+                    Web Developer • Creative • Enthusiast
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="window" style="bottom: 150px; right: 30px; width: 280px;" id="paint-window">
+            <div class="window-header">
+                <div>Paint</div>
+                <div class="window-buttons">
+                    <div class="window-button">_</div>
+                    <div class="window-button">□</div>
+                    <div class="window-button" data-window="paint-window">✕</div>
+                </div>
+            </div>
+            <div class="window-body" style="padding: 0;">
+                <div style="background-color: white; width: 100%; height: 200px; position: relative; overflow: hidden;">
+
+                </div>
+              
+            </div>
+        </div>
+
+     
+        <div class="name-banner">Raphael Burad</div>
+
+        
+        <div class="links-container">
+            <div class="glitter-text">~ Meus Links ~</div>
+            <a href="#" class="link-box" style="animation: blink 1s infinite;">📸 Instagram</a>
+
+            <a href="#" class="link-box" style="transform: rotate(1deg);">📧 contato</a>
+            <a href="#" class="link-box" style="transform: rotate(-2deg);">🎮 Discord</a>
+
+            <a href="#" class="link-box" style="transform: rotate(3deg);">💻 BURAD</a>
+
+        </div>
+
+       
+        <div class="progress-bar" style="bottom: 120px; left: 60px;">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-label">Loading... 70%</div>
+        </div>
+
+ 
+        <div class="random-popup" style="bottom: 150px; left: 40%;">
+            ✨ Adicione-me no MSN! ✨
+        </div>
+
+        <div class="random-popup" style="top: 50%; right: 15%; animation-delay: 1s;">
+            🔥 Under Construction! 🔥
+        </div>
+
+        <div class="random-popup" style="top: 30%; left: 25%; animation-delay: 2s;">
+            💾 Download Now! 💾
+        </div>
+
+   
+        <div class="marquee-container">
+            <div class="marquee-text">
+                ★ Welcome to Raphael Burad's zone! ★ This site is best viewed in 800x600 resolution ★ Netscape
+                Navigator 4.0 recommended ★ Last updated 01/01/2000 ★ You are visitor #4269 ★
+            </div>
+            <h4 style="text-align: center; margin: 0px 0px 10px 0px; color: #00fff23a;">© 2025 Raphael Burad</h4>
+        </div>
+        
+
+      
+        <div class="start-bar">
+            <div class="start-button" id="start-button">🚀 Start</div>
+            <div class="taskbar-item">raphael.exe</div>
+            <div class="taskbar-item">Paint</div>
+            <div class="clock" id="clock">16:20</div>
+        </div>
     </div>
-
-    <script>
-        document.querySelector("#links").addEventListener("click", () => {
-            if (document.querySelector("#links").innerHTML === "LINKS") {
-                document.querySelector("#links").style.display = "none";
-                document.querySelector("#ig").style.display = "block";
-                document.querySelector("#burad").style.display = "block";
-            }
-        });
-
-        document.querySelector("#ig").addEventListener("click", () => {
-            window.location.href = "https://www.instagram.com/rapburad/?theme=dark";
-        });
-
-        document.querySelector("#burad").addEventListener("click", () => {
-            window.location.href = "https://burad.com.br";
-        });
-    </script>
-
-    <link rel="shortcut icon" type="image/x-icon" href="SPECTRO.png" />
+    
+    <script src="./script.js"></script>
 </body>
 
 </html>
