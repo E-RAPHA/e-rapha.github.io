@@ -255,7 +255,7 @@
                     if (obstacles[i].x + obstacles[i].width < 0) { obstacles.splice(i, 1) }
                 }
                 if (obstaclesPassed >= GAME_CONFIG.obstacles.totalCount) {
-                    gameState = 'victory'; alert('🎉 PARABÉNS! Você passou por todos os obstáculos! 🎉'); window.location.href = "https://wa.me/5513996340623?text=oi%20burad%20gostoso%2C%20%F0%9F%91%89%F0%9F%91%88 "
+                    gameState = 'victory'; alert('🎉 PARABÉNS! Você passou por todos os obstáculos! 🎉'); window.location.href = "https://wa.me/5513996340623?text=oi%20burad%20bonitao"
                     return
                 }
                 const collision = checkCollision(); if (collision === 'victory') { gameState = 'victory'; alert('🎉 PARABÉNS! Você tocou na estrela e venceu o jogo! 🎉'); restartGame(); return } else if (collision === !0) { gameState = 'gameOver'; gameOverDiv.style.display = 'block'; document.getElementById('gameOverText').textContent = `Você bateu nos obstáculos! Passou por ${obstaclesPassed}/${GAME_CONFIG.obstacles.totalCount} obstáculos.` }
